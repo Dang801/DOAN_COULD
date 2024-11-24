@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đăng Nhập</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: url('IMG/login.jpg') no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        align-items: self-start;
+        justify-content: right;
+    }
+    label{
+        margin-left: 20px;
+    }
+
+    input {
+        background-color: rgba(128, 128, 128, 0.297);
+        width: 280px;
+        height: 50px;
+        margin-left: 20px;
+        margin-top: 5px;
+        height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    button {
+        height: 40px;
+        width: 285px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #000cb3;
+    }
+   
+    form{
+        margin-top: 30px;
+        margin-right: 30px;
+
+        width: 340px;
+        height: auto;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h4 {
+        text-align: center;
+        font-size: 25px;
+        margin-left: 20px;
+        margin-top: 0;
+    }
+    img{
+        width: 300px;
+        margin-left: 10px;
+    }
+    p {
+        color: #FF0000;
+        margin-left: 20px;
+    }
+</style>
+</head>
+<body>
+    <form>
+        <table cellpadding="4">
+            <tr>
+                <td><img src="./IMG/logo.png" alt="HUIT"></td>
+            </tr>
+            <tr style="background-color: #FFFFFF; margin-bottom: 10px;">
+                <td><h4 style="color: blue;">ĐĂNG NHẬP HỆ THỐNG</h4></td>
+            </tr>
+            <tr>
+                <td><label><b>Email</b></label><br><input type="email" name="EmailReciever">
+                <p id="err-email"></p></td>
+            </tr>
+            <tr>
+                <td><label><b>Password</b></label><br><input type="password" name="password">
+                <p id="err-pass"></p>
+                </td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="KiemTraVaXuatThongTin()">Đăng Nhập</button></td>
+            </tr>
+        </table>
+    </form>
+    
+    <script>
+        function KiemTraVaXuatThongTin() {
+        var email = document.getElementsByName('EmailReciever')[0].value;
+        var password = document.getElementsByName('password')[0].value;
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        // Kiểm tra email và password
+        document.getElementById("err-email").innerHTML = "";
+        document.getElementById("err-pass").innerHTML = "";
+        if (!emailRegex.test(email) || password.length <= 10) {
+            if (!emailRegex.test(email)) {
+                document.getElementById("err-email").innerHTML = "Email không hợp lệ.";
+            }
+
+            // Kiểm tra độ dài password
+            if (password.length <= 10) {
+                document.getElementById("err-pass").innerHTML = "Password phải có độ dài hơn 10 ký tự.";
+            }
+        }
+        else {
+            sessionStorage.setItem('email', email);
+       
+            window.location.href = 'DangNhap5b.html';
+        }
+        
+        }
+    </script>
+    
+</body>
+</html>

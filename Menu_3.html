@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        nav {
+            background-color: #7ec0c8;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #5ea3a8;
+        }
+        nav ul li.has-submenu > a:after {
+            content: '▼';
+            display: inline-block;
+            margin-left: 5px;
+            font-size: 0.8em;
+        }
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: #7ec0c8;
+            min-width: 200px;
+            z-index: 1000;
+        }
+        nav ul ul ul {
+            left: 100%;
+            top: 0;
+        }
+        nav ul li:hover > ul {
+            display: block;
+        }
+        nav ul ul li.has-submenu > a:after {
+            content: '▶';
+            display: inline-block;
+            margin-left: 5px;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li class="has-submenu"><a href="#">Sản phẩm</a>
+                <ul>
+                    <li><a href="#">Đồng hồ đeo tay</a></li>
+                    <li><a href="#">Điện thoại di động</a></li>
+                    <li class="has-submenu"><a href="#">Máy giặt</a>
+                        <ul>
+                            <li><a href="#">Máy giặt cửa ngang</a></li>
+                            <li><a href="#">Máy giặt cửa trên</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">Sản phẩm mới</a></li>
+            <li><a href="#">Sự tập</a></li>
+            <li><a href="#">Giới thiệu</a></li>
+        </ul>
+    </nav>
+</body>
+</html>

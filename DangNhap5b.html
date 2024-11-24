@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         body {
+        margin: 0;
+        padding: 0;
+        background: url('IMG/login.jpg') no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        align-items: self-start;
+        justify-content: left;
+    }
+    table{
+        position: absolute;
+        display: inline;
+        background-color: rgba(105, 105, 105, 0.751);
+        width: 100%;
+        margin-top: 20px;
+        height: 100px;
+    }
+    img{
+        width: 300px;
+        margin-left: 10px;
+    }
+     img{
+        position: relative;
+        margin-top: 15px
+    }
+    </style>
+</head>
+<body>
+    <form id="form_1">
+       <table>
+        <tr>
+            <th><img src="./IMG/logo.png" alt="HUIT"></th>
+            <th><b>Bạn đã đăng nhập bằng tài khoản : </b></th>
+            <th id="EmailDN" class="dd" style="color: red;"></th>
+        </tr>
+        </table>
+    </form>
+    <script>
+        // Hàm này sẽ được gọi ngay khi trang Bai_5b.html tải xong
+        window.onload = function() {
+            // Hiển thị thông tin từ biến session
+            document.getElementById('EmailDN').textContent = sessionStorage.getItem('email');
+           
+
+            // Xóa biến session sau khi hiển thị
+            sessionStorage.removeItem('email');
+            
+        }
+    </script>
+</body>
+</html>
